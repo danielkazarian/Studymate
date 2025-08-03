@@ -1,0 +1,51 @@
+# StudyMate Terraform Variables Example
+# Copy this file to terraform.tfvars and fill in your values
+
+# General Configuration
+project_name = "studymate"
+environment  = "prod"
+owner        = "your-team"
+aws_region   = "us-east-1"
+
+# Network Configuration
+vpc_cidr = "10.0.0.0/16"
+
+# Database Configuration
+db_instance_class    = "db.t3.micro"  # Use larger instance for production
+db_allocated_storage = 20
+db_name              = "studymate"
+db_username          = "studymate"
+db_password          = "your-secure-database-password"
+
+# Redis Configuration
+redis_node_type     = "cache.t3.micro"  # Use larger instance for production
+redis_num_nodes     = 1
+redis_parameter_group = "default.redis7"
+
+# Container Configuration
+backend_image  = "your-account.dkr.ecr.us-east-1.amazonaws.com/studymate/backend:latest"
+frontend_image = "your-account.dkr.ecr.us-east-1.amazonaws.com/studymate/frontend:latest"
+
+backend_cpu            = 512
+backend_memory         = 1024
+backend_desired_count  = 2
+
+frontend_cpu           = 256
+frontend_memory        = 512
+frontend_desired_count = 2
+
+# Secrets (Generate secure values for production)
+jwt_secret                = "your-production-jwt-secret-key"
+refresh_token_secret      = "your-production-refresh-token-secret"
+encryption_key           = "your-32-character-encryption-key"
+
+# Google OAuth (Optional)
+google_client_id     = ""
+google_client_secret = ""
+
+# DNS Configuration (Optional)
+domain_name = ""  # e.g., "yourdomain.com"
+enable_cdn  = false
+
+# Logging
+log_retention_days = 14 
